@@ -1,5 +1,5 @@
 import { useContext, FormEvent, useState } from 'react'
-import type { NextPage } from 'next'
+
 
 import { Input } from '../components/ui/input'
 import { Button } from '../components/ui/button'
@@ -8,12 +8,17 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import styles from '../../styles/Home.module.scss'
+import { toast } from 'react-toastify'
 
 import { AuthContext } from '../contexts/AuthContext'
+
+import { canSSRGuest } from '../utils/canSSRGuest'
+
 
 function Home (){
   
   const { signIn } = useContext(AuthContext)
+  
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -25,7 +30,7 @@ function Home (){
     
     event.preventDefault();
     if(email === '' || password === ''){
-      alert('Preencha os dados')
+      toast.error('Preencha os dados')
       return
     }
 
@@ -87,3 +92,9 @@ function Home (){
 }
 
 export default Home
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+  return {
+    props:{}
+  }
+})
