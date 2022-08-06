@@ -1,0 +1,63 @@
+.container{
+    max-width: 720px;
+    display: flex;
+
+    flex-direction: column;
+    margin: 4rem auto;
+    padding: 0 4rem;
+   
+
+}
+
+
+
+.containerHeader{
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    h1{
+        margin-right: 10px;
+    } 
+    button{
+        background-color: transparent;
+        border: 0;
+    }
+}
+
+
+
+.orderItem{
+
+    display: flex;
+    flex-direction: column;   
+    margin: 1rem auto;
+    
+    button{
+        background-color: var(--dark-900);
+        color: var(--white);
+        height: 60px;
+        border: 0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        
+    }
+    
+
+}
+
+.tag{
+    width: 9px;
+    background-color: var(--green-900);
+    height: 60px;
+    border-radius: 3px 0px 0px 3px;
+    margin-right: 10px;
+}
+
+.empty{
+color: var(--gray-100);
+font-size: 17.4px;
+margin: 0rem 2px;
+display: flex;
+margin-top: 10px;
+}
