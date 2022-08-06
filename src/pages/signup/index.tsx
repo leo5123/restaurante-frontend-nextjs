@@ -29,7 +29,7 @@ const Signup: NextPage = () => {
     e.preventDefault()
     
     if(email === '' || password === '' || name === ''){
-      toast.info('Dados necessários para registro')
+      toast.info('Dados necessários')
       return
     }
 

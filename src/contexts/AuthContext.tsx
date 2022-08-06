@@ -9,7 +9,8 @@ type AuthContextData = {
     isAuthenticated: boolean;
     signIn: (credentials: SignInProps) => Promise<void>;
     signOut: () => void;
-    signUp: (credentials: SignUpProps)  => Promise<void>
+    signUp: (credentials: SignUpProps)  => Promise<void>;
+    
 }
 
 type UserProps = {
@@ -33,6 +34,8 @@ type SignUpProps = {
     email: string,
     password: string
 }
+
+
 
 export const AuthContext = createContext({} as AuthContextData)
 
@@ -95,7 +98,6 @@ export function AuthProvider({ children }: AuthProviderProps){
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`
 
-            toast.success('Bem vindo')
 
             Router.push('/dashboard')
 
@@ -116,7 +118,7 @@ export function AuthProvider({ children }: AuthProviderProps){
             
             
 
-            toast.success('Conta criado com sucesso')
+            toast.success('Conta criada')
 
             Router.push('/')
     
@@ -125,6 +127,10 @@ export function AuthProvider({ children }: AuthProviderProps){
             console.log('Erro ao registrar', err)            
         }
     }
+    
+    
+
+
     
 
     return(
